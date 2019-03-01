@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <h1>Search</h1>
+  <form action="">
+    <input id="search" type="text" name="search">
+    <button id="button" onclick="searchRequest(event)">Search</button>
+  </form>
+
+  <h1>hasil</h1>
+  <div id="hasil"></div>
+</body>
+
+<script>
+  let api = 'http://localhost:3000/api/';
+
+  // init value
+  document.getElementById('search').value = 'kipas';
+
+
+  function searchRequest(e) {
+    e.preventDefault();
+    let stringSearch = document.getElementById('search').value
+    let url = api + 'search?name=' + stringSearch
+
+    fetch(url).then(res => {
+      return res.json();
+    }).then(res => {
+      document.getElementById('hasil').innerHTML =
+        `
+        id = ${res.data.id} <br>
+        name = ${res.data.name} <br>
+        place = ${res.data.place} <br>
+      `
+    })
+  }
+</script>
+
+</html>

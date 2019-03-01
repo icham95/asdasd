@@ -1,0 +1,16 @@
+[{
+    "id": 1,
+    "name": "kipas",
+    "place": "bogor"
+  },
+  {
+    "id": 2,
+    "name": "mouse",
+    "place": "jakarta"
+  },
+  {
+    "id": 3,
+    "name": "asbak",
+    "place": "bandung"
+  }
+]
